@@ -1,0 +1,79 @@
+- extends 'app/base.haml'
+- load static
+
+- block content
+  .container.mb-5(data-spy = "scroll" data-target = ".nav" style="display: none")
+    .row.mt-5.justify-content-between
+      .col-sm-auto.align-self-center
+        %h1.display-3
+          Alexander Urizar
+
+      .col-sm-auto.align-self-center
+        %h1
+          %a.btn.btn-outline-dark.rounded-0(href= "#")
+            %i.fa.fa-envelope(aria-hidden= "true")
+          %a.btn.btn-outline-dark.rounded-0(href= "#")
+            %i.fa.fa-linkedin-square(aria-hidden= "true")
+          %a.btn.btn-outline-dark.rounded-0(href= "#")
+            %i.fa.fa-github(aria-hidden= "true")
+
+    #about-me.row.mt-5
+      .col
+        %h1.display-4 About Me
+
+    .row.mt-3.mb-5
+      .col
+        %p
+          I am a web developer, graphic designer, musician, programmer, and technical analyst in Bridgeport, Connecticut. Ask me about pizza recommendations, TV show recommendations, movie recommendations, music recommendations, life recommendations, general advice, 
+          specific advice, specific advice about relationships, my thoughts on today's political climate, and how to answer tricky job interview questions.
+        %p.mb-0
+          Not that great at trivia, unfortunately.
+    
+    #portfolio.row.mt-5
+      .col
+        %h1.display-4 Portfolio
+
+    .row.mt-3
+      .col-sm-6
+        %a(href = "{% url 'quote' %}")
+          .card
+            %img.card-img-top(alt= "Quote Screenshot" src= "{% static 'pictures/quote generator.png' %}")
+            .card-body
+              %h5.card-title.text-dark Quote Generator
+              %small.card-subtitle.text-muted A simple random quote generator
+
+      .col-sm-6
+        %a(href = "{% url 'simon' %}")
+          .card.mt-3.mt-sm-0
+            %img.card-img-top(alt = "Simon Screenshot" src= "{% static 'pictures/simon.png' %}")
+            .card-body
+              %h5.card-title.text-dark Simon
+              %small.card-subtitle.text-muted A minimalistic simon says game
+
+    .row.mt-3
+      .col-sm-6
+        %a(href = "{% url 'tictac' %}")
+          .card
+            %img.card-img-top(alt= "Tic Tac Toe Screenshot" src= "{% static 'pictures/tic tac toe.png' %}")
+            .card-body
+              %h5.card-title.text-dark Tic Tac Toe
+              %small.card-subtitle.text-muted Play against a friend, or the computer
+
+      .col-sm-6
+        %a(href = "{% url 'timer' %}")
+          .card.mt-3.mt-sm-0
+            %img.card-img-top(alt= "Timer Screenshot" src= "{% static 'pictures/timer.png' %}")
+            .card-body
+              %h5.card-title.text-dark Pomodoro Timer
+              %small.card-subtitle.text-muted Alternate between working and resting for maximum efficiency
+    
+  %nav.navbar.navbar-expand-lg.navbar-light.fixed-bottom.justify-content-center(style="background: white")
+    %a.btn.btn-light(href= "#")
+      %i.fa.fa-home(aria-hidden= "true")
+      Home
+    %a.btn.btn-light(href= "#about-me")
+      %i.fa.fa-comment(aria-hidden= "true")
+      About Me
+    %a.btn.btn-light(href= "#portfolio")
+      %i.fa.fa-picture-o(aria-hidden= "true")
+      Portfolio

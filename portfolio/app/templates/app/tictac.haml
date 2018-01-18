@@ -1,0 +1,84 @@
+- extends 'app/header.haml'
+
+- block content
+  #c.container.mb-5.mt-5(style="display: none")
+    .row.text-center#title
+      .col
+        %h1.display-4  tic tac toe
+        .mb-3 by Alexander Urizar
+    
+    .row
+      .col-auto
+        .list-group.text-center
+          %button.list-group-item.active#human
+            %i.fa.fa-user
+            human
+          %button.list-group-item#computer 
+            %i.fa.fa-desktop
+            computer
+      
+      .col-auto#letter(style="display: none")
+        .list-group
+          %button.list-group-item.active#selectX 
+            %i.fa.fa-user
+            x
+          %button.list-group-item#selectO 
+            %i.fa.fa-user
+            o
+      
+      .col-auto.align-self-end
+        .list-group
+          %button.list-group-item.active#refresh
+            %span.align-middle
+              %i.fa.fa-play-circle
+              start
+    
+    #board(style="display: none")
+      .row.text-center.mt-5.justify-content-center
+        .col-auto
+          .card#1a
+            .card-body
+              %h1.display-4.space _
+        .col-auto
+          .card#1b
+            .card-body
+              %h1.display-4.space _
+        .col-auto
+          .card#1c
+            .card-body
+              %h1.display-4.space _
+
+      .row.text-center.mt-3.justify-content-center
+        .col-auto
+          .card#2a
+            .card-body
+              %h1.display-4.space _
+        .col-auto
+          .card#2b
+            .card-body
+              %h1.display-4.space _
+        .col-auto
+          .card#2c
+            .card-body
+              %h1.display-4.space _
+
+      .row.text-center.mt-3.justify-content-center
+        .col-auto
+          .card#3a
+            .card-body
+              %h1.display-4.space _
+        .col-auto
+          .card#3b
+            .card-body
+              %h1.display-4.space _
+        .col-auto
+          .card#3c
+            .card-body
+              %h1.display-4.space _
+    
+      .row.mt-5
+        .col
+          #victory.card.bg-primary.text-light.text-center.border-primary(style="display: none")
+            .card-body
+              %h4.display-4#message
+              click to continue
