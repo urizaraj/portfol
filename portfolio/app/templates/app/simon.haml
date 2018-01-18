@@ -1,0 +1,66 @@
+- extends 'app/header.haml'
+
+- block content
+  #c.container.mt-5.mb-5(style= "display: none")
+    .row.justify-content-between#1
+      .col-auto
+        %h1.display-4
+          simon - 'the game'
+      .col-auto.align-self-center
+        %button#strict.btn.btn-lg.btn-outline-dark.border-0.rounded-0
+          %i.fa.fa-square-o#check
+          strict mode
+        %button.btn.btn-lg.btn-outline-dark.rounded-0#start
+          %i.fa.fa-play
+          start
+  
+    .row.justify-content-between#2(style= "display: none")
+      .col-auto
+        %h1.display-4
+          count:
+          %span#length 1
+      .col-auto.align-self-center
+        %button.btn.btn-lg.btn-outline-dark.rounded-0#reset
+          %i.fa.fa-refresh
+          reset
+          
+  
+    .row.mt-5.mb-5.justify-content-center
+      .col-lg-9
+        .row
+          .col-3
+            %button.btn.btn-warning.btn-lg.btn-block.rounded-0#yellow
+              &nbsp;
+          .col-3
+            %button.btn.btn-danger.btn-lg.btn-block.rounded-0#red
+              &nbsp;
+          .col-3
+            %button.btn.btn-success.btn-lg.btn-block.rounded-0#green
+              &nbsp;
+          .col-3
+            %button.btn.btn-primary.btn-lg.btn-block.rounded-0#blue
+              &nbsp;
+    
+    .row#success(style= "display: none")
+      .col
+        .card.bg-success.text-light.text-center.rounded-0
+          .card-body
+            %h1.display-4
+              Success!
+            %h6 click to continue
+            
+    .row#victory(style= "display: none")
+      .col
+        .card.bg-primary.text-light.text-center.rounded-0
+          .card-body
+            %h1.display-4
+              You won the game!
+            %h6 click to reset
+              
+    .row#tryagain(style= "display: none")
+      .col
+        .card.bg-danger.text-light.text-center.rounded-0
+          .card-body
+            %h1.display-4
+              Try again.
+            %h6 click to continue

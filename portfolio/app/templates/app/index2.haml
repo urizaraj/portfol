@@ -1,0 +1,58 @@
+- extends 'app/base.haml'
+- load static
+
+- block content
+  .container.mt-5.text-light(style="display: none")
+    .row.justify-content-between
+      .col-sm-auto
+        %h1.display-2
+          Alexander Urizar
+    
+    .row.mt-3
+      .col
+        %h1
+          Located in Bridgeport, CT.
+          Check me out on
+          %span#linkedin.mr-2
+            %a(href="https://www.linkedin.com/in/alexander-urizar-a8231b68")
+              LinkedIn
+              %i.fa.fa-linkedin-square(aria-hidden= "true") 
+          %span#github.mr-2
+            %a(href="https://github.com/urizaraj")
+              Github
+              %i.fa.fa-github(aria-hidden= "true")
+          or shoot me an 
+          %span#email.mr-2
+            %a(href="#")
+              email
+              %i.fa.fa-envelope(aria-hidden= "true")
+
+    #pheader.row.mt-5
+      .col
+        %h1.display-4
+          Projects
+          %i.fa.fa-angle-down#arrow
+
+    .row.mt-3#projects
+      .col
+        .row
+          .col-sm-6.right-border.p-3
+            %a(href="{% url 'quote' %}")
+              %h3 Quote Generator
+              %h5 a simple small quote generator
+                
+          .col-sm-6.right-border.p-3
+            %a(href="{% url 'simon' %}")
+              %h3 Simon
+              %h5 a minimalistic simon says game
+        
+        .row.mt-3
+          .col-sm-6.right-border.p-3
+            %a(href="{% url 'tictac' %}")
+              %h3 Tic Tac Toe
+              %h5 play against a friend, or the computer
+          
+          .col-sm-6.right-border.p-3
+            %a(href="{% url 'timer' %}")
+              %h3 Pomodoro Timer
+              %h5 alternate between working and resting for maximum efficiency

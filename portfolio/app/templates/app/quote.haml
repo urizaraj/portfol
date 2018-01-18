@@ -1,0 +1,26 @@
+- extends 'app/header.haml'
+- load static
+- block content
+	#c.container(style="display: none")
+		.row.justify-content-center.mt-5
+			.col-md-10
+				.card#quotecard
+					.card-body
+						%blockquote.blockquote.mb-0
+							%p#quote
+							%footer.blockquote-footer#author
+
+		.row.mt-3.justify-content-center
+			.col-md-3.col-sm-4.col-6
+				#tweet
+					%button.btn.btn-primary.btn-light.btn-block.btn-lg
+						%i.fa.fa-twitter
+			
+			.col-md-7.col-sm-8.col-6
+				#newQuote
+					%button.btn.btn-primary.btn-light.btn-block.btn-lg
+						%i.fa.fa-random
+
+		.row.mt-5.text-right
+			.col-10
+				by Alexander Urizar

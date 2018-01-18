@@ -1,0 +1,8 @@
+- extends 'app/base.haml'
+- block navbar
+    .container-fluid.mt-3
+        .row.fixed-top.float-left
+            .col
+                %a.btn.btn-outline-dark.rounded-0.mt-1.ml-1(href="{% url 'index' %}")
+                    %i.fa.fa-arrow-left
+                    Home

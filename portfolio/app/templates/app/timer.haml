@@ -1,0 +1,57 @@
+- extends 'app/header.haml'
+- load static
+- block content
+  #c.container(style="display: none")
+    .row.mt-5
+      .col
+    
+    .row.text-center#disp
+      .col
+        %h1.display-2#phase Work
+        %h1.display-2#time
+        .progress.mt-3(style="height: 2rem;")
+          .progress-bar.bg-danger#bar(role="progressbar" style="width:100%")
+            
+    
+    .row.mt-5.text-center
+      .col
+        %button.btn.btn-dark#start(style="width:10rem")
+          %h1.display-4
+            %span.align-middle
+              %i.fa.fa-play-circle
+
+        %button.btn.btn-danger#stop(style="width:10rem")
+          %h1.display-4
+            %span.align-middle
+              %i.fa.fa-stop-circle
+              
+    .row.mt-5.text-center.align-items-end#settings
+      .col-md-6
+        %h1.display-4 session length
+        .row
+          .col-4
+            %button.btn.btn-block.btn-outline-dark.border-0#sm
+              %h1.display-4 -
+                
+          
+          .col-4.align-self-center
+            %h1.display-4#s 25
+          
+          .col-4
+            %button.btn.btn-block.btn-outline-dark.border-0#sp
+              %h1.display-4 +
+              
+      
+      .col-md-6
+        %h1.display-4 break length
+        .row
+          .col-4
+            %button.btn.btn-block.btn-outline-dark.border-0#bm
+              %h1.display-4#bm -
+          
+          .col-4.align-self-center
+            %h1.display-4#b 5
+          
+          .col-4
+            %button.btn.btn-block.btn-outline-dark.border-0#bp
+              %h1.display-4#bp +
