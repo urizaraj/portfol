@@ -4,7 +4,7 @@ from django.template import loader
 
 def index(request):
     context = {
-        'title': 'portfolio',
+        'title': 'Alexander Urizar - Portfolio',
         'script': 'app/index.js',
         'style': 'css/index.css',
         }
