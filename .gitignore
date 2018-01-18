@@ -264,8 +264,8 @@ bootstrap/
 obj/
 scss/
 typescript/
-static/
 .vscode/
+portfolio/static
 
 scsscompile.py
 portfolio/settings.py
