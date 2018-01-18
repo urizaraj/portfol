@@ -259,3 +259,17 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+bootstrap/
+obj/
+scss/
+typescript/
+static/
+.vscode/
+
+scsscompile.py
+portfolio/settings.py
+portfolio/portfolio/settings.py
+portfolio.sln
+portfolio/portfolio.pyproj
+/portfolio/newindex.sass

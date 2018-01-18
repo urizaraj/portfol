@@ -14,7 +14,7 @@ def tictac(request):
     context = {
         'title': 'tic tac toe',
         'script': 'app/tictac.js',
-        'style': 'css/tictacstyle.css',
+        'style': 'css/tictac.css',
         }
     return render(request, 'app/tictac.haml', context)
 
@@ -22,7 +22,7 @@ def simon(request):
     context = {
         'title': 'simon',
         'script': 'app/simon.js',
-        'style': 'css/tictacstyle.css',
+        'style': 'css/tictac.css',
         }
     return render(request, 'app/simon.haml', context)
 
@@ -30,7 +30,7 @@ def quote(request):
     context = {
         'title': 'random quote',
         'script': 'app/quote.js',
-        'style': 'css/index.css',
+        'style': 'css/quote.css',
         }
     return render(request, 'app/quote.haml', context)
 
@@ -38,6 +38,6 @@ def timer(request):
     context = {
         'title': 'timer',
         'script': 'app/timer.js',
-        'style': 'css/tictacstyle.css',
+        'style': 'css/tictac.css',
         }
     return render(request, 'app/timer.haml', context)
