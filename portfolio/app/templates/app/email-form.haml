@@ -1,0 +1,20 @@
+.row.mt-3#email-form(style="display: none")
+  .col-lg-8
+    .card.bg-celestial.border-0
+      .card-body
+        %form(action="/send/" method="post")
+          - csrf_token
+          .form-group
+            %label(for="#{form.subject.id_for_label}") Subject:
+            = form.subject
+          .form-group
+            %label(for="#{form.message.id_for_label}") Message:
+            = form.message
+          %label(for="#{form.sender.id_for_label}") Sender:
+          .row.align-items-center
+            .form-group.col-10
+              = form.sender
+            .form-check.col-2
+              = form.cc_myself
+              %label(for="#{form.cc_myself.id_for_label}") CC?
+          %input.btn.btn-royalblue(type="submit" value="Send")/

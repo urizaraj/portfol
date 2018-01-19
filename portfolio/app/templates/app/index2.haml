@@ -2,9 +2,9 @@
 - load static
 
 - block content
-  .container.mt-5.text-light(style="display: none")
-    .row.justify-content-between
-      .col-sm-auto
+  .container.mt-3.mt-sm-5.mb-5.text-light(style="display: none")
+    .row
+      .col
         %h1.display-2
           Alexander Urizar
     
@@ -21,9 +21,9 @@
             %a(href="https://github.com/urizaraj")
               Github
               %i.fa.fa-github(aria-hidden= "true")
-          or shoot me an 
-          %span#email.mr-2
-            %a(href="#")
+          or shoot me an
+          #email.mr-2.d-sm-inline
+            %a(href="mailto:contact@urizaraj.com")
               email
               %i.fa.fa-envelope(aria-hidden= "true")
 
@@ -41,7 +41,7 @@
               %h3 Quote Generator
               %h5 a simple small quote generator
                 
-          .col-sm-6.right-border.p-3
+          .col-sm-6.right-border.p-3.mt-3.mt-sm-0
             %a(href="{% url 'simon' %}")
               %h3 Simon
               %h5 a minimalistic simon says game
@@ -52,7 +52,7 @@
               %h3 Tic Tac Toe
               %h5 play against a friend, or the computer
           
-          .col-sm-6.right-border.p-3
+          .col-sm-6.right-border.p-3.mt-3.mt-sm-0
             %a(href="{% url 'timer' %}")
               %h3 Pomodoro Timer
               %h5 alternate between working and resting for maximum efficiency
