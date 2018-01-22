@@ -36,23 +36,19 @@
     .row.mt-3#projects
       .col
         .row
-          .col-sm-6.right-border.p-3
-            %a(href="{% url 'quote' %}")
-              %h3 Quote Generator
-              %h5 a simple small quote generator
-                
-          .col-sm-6.right-border.p-3.mt-3.mt-sm-0
-            %a(href="{% url 'simon' %}")
-              %h3 Simon
-              %h5 a minimalistic simon says game
+          %a.col-sm-6.right-border.p-3(href="{% url 'quote' %}")
+            %h3 Quote Generator
+            %h5 a simple small quote generator
+          
+          %a.col-sm-6.right-border.p-3.mt-3.mt-sm-0(href="{% url 'simon' %}")
+            %h3 Simon
+            %h5 a minimalistic simon says game
         
         .row.mt-3
-          .col-sm-6.right-border.p-3
-            %a(href="{% url 'tictac' %}")
-              %h3 Tic Tac Toe
-              %h5 play against a friend, or the computer
+          %a.col-sm-6.right-border.p-3(href="{% url 'tictac' %}")
+            %h3 Tic Tac Toe
+            %h5 play against a friend, or the computer
           
-          .col-sm-6.right-border.p-3.mt-3.mt-sm-0
-            %a(href="{% url 'timer' %}")
-              %h3 Pomodoro Timer
-              %h5 alternate between working and resting for maximum efficiency
+          %a.col-sm-6.right-border.p-3.mt-3.mt-sm-0(href="{% url 'timer' %}")
+            %h3 Pomodoro Timer
+            %h5 alternate between working and resting for maximum efficiency
