@@ -273,3 +273,4 @@ portfolio/portfolio/settings.py
 portfolio.sln
 portfolio/portfolio.pyproj
 /portfolio/newindex.sass
+portfolio/tsconfig.json

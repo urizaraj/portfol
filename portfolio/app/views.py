@@ -27,7 +27,7 @@ def tictac(request):
 def simon(request):
     context = {
         'title': 'simon',
-        'script': 'app/js/simon.js',
+        'script': 'app/js/simon2.js',
         'style': 'app/css/tictac.css',
         }
     return render(request, 'app/simon.haml', context)
