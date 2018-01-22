@@ -1,19 +1,19 @@
-var sessionLength = 25;
-var breakLength = 5;
-var timeLeft = 0;
-var totalTime;
-var phase = "";
-var interval;
+let sessionLength = 25;
+let breakLength = 5;
+let timeLeft = 0;
+let totalTime;
+let phase = "";
+let interval;
 function displayTime() {
-    var minutes = Math.floor(timeLeft / 60);
-    var seconds = timeLeft % 60;
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
     seconds = seconds.toString().padStart(2, '0');
     $("#time").text(minutes + ":" + seconds);
 }
 function updateTimer() {
     if (timeLeft > 1) {
         timeLeft -= 1;
-        var p = Math.round((timeLeft / totalTime) * 100);
+        let p = Math.round((timeLeft / totalTime) * 100);
         $("#bar").css("width", p + "%");
         displayTime();
     }
@@ -41,17 +41,16 @@ function start() {
     $("#settings").slideUp();
     interval = setInterval(updateTimer, 1000);
 }
-function stop() {
+function stopTimer() {
     clearInterval(interval);
     phase = '';
     $("#disp").slideUp();
     $("#settings").slideDown();
 }
-$("#disp").hide();
 $(document).ready(function () {
     $("#c").fadeIn(100);
     $("#start").on("click", start);
-    $("#stop").on("click", stop);
+    $("#stop").on("click", stopTimer);
     $("#bp").on("click", function () {
         breakLength += 1;
         $("#b").text(breakLength);

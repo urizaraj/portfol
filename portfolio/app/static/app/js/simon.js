@@ -1,22 +1,22 @@
-var data = $("#data");
-var a = new Audio('https://dl.dropboxusercontent.com/s/941sdrvc1peurt3/c.wav?dl=0');
-var b = new Audio('https://dl.dropboxusercontent.com/s/r0uowyioitid3um/e.wav?dl=0');
-var c = new Audio('https://dl.dropboxusercontent.com/s/68qewxq4ou3q30h/g.wav?dl=0');
-var d = new Audio('https://dl.dropboxusercontent.com/s/9b7uiy2g5uvw2wy/b%20flat.wav?dl=0');
+const data = $("#data");
+const a = new Audio('https://dl.dropboxusercontent.com/s/941sdrvc1peurt3/c.wav?dl=0');
+const b = new Audio('https://dl.dropboxusercontent.com/s/r0uowyioitid3um/e.wav?dl=0');
+const c = new Audio('https://dl.dropboxusercontent.com/s/68qewxq4ou3q30h/g.wav?dl=0');
+const d = new Audio('https://dl.dropboxusercontent.com/s/9b7uiy2g5uvw2wy/b%20flat.wav?dl=0');
 a.load();
 b.load();
 c.load();
 d.load();
-var buttons = { "#yellow": a, "#red": b, "#green": c, "#blue": d };
-var colors = ["#yellow", "#red", "#green", "#blue"];
-var boot = { "#yellow": "warning", "#red": "danger", "#green": "success", "#blue": "primary" };
-var currentColors = [];
-var currentLength = 1;
-var pressed = [];
-var keepTrack = false;
-var strictMode = false;
-var currentIndex = 0;
-var interval;
+const buttons = { "#yellow": a, "#red": b, "#green": c, "#blue": d };
+const colors = ["#yellow", "#red", "#green", "#blue"];
+const boot = { "#yellow": "warning", "#red": "danger", "#green": "success", "#blue": "primary" };
+let currentColors = [];
+let currentLength = 1;
+let pressed = [];
+let keepTrack = false;
+let strictMode = false;
+let currentIndex = 0;
+let interval;
 function activateColor(color) {
     buttons[color].currentTime = 0;
     buttons[color].play();
@@ -44,8 +44,8 @@ function startGame() {
     $("#strict").hide();
     $("#1").slideUp();
     $("#2").slideDown();
-    for (var n = 0; n < currentLength; n++) {
-        var i = Math.floor(Math.random() * 4);
+    for (let n = 0; n < currentLength; n++) {
+        let i = Math.floor(Math.random() * 4);
         currentColors.push(colors[i]);
     }
     interval = setInterval(playCurrentColors, 600);
@@ -59,7 +59,7 @@ function continueGame() {
         $("#length").fadeIn(200);
     });
     if (currentColors.length < currentLength) {
-        var i = Math.floor(Math.random() * 4);
+        let i = Math.floor(Math.random() * 4);
         currentColors.push(colors[i]);
     }
     interval = setInterval(playCurrentColors, 600);
@@ -67,7 +67,7 @@ function continueGame() {
 }
 function playCurrentColors() {
     if (currentIndex < currentColors.length) {
-        var color = currentColors[currentIndex];
+        let color = currentColors[currentIndex];
         activateColor(color);
         currentIndex++;
     }
@@ -109,12 +109,8 @@ function wrongChoice() {
 }
 $(document).ready(function () {
     $("#c").fadeIn(100);
-    var _loop_1 = function (color) {
+    for (let color of colors) {
         $(color).on("click", function () { colorClick(color); });
-    };
-    for (var _i = 0, colors_1 = colors; _i < colors_1.length; _i++) {
-        var color = colors_1[_i];
-        _loop_1(color);
     }
     $("#start").on("click", startGame);
     $("#reset").on("click", resetGame);

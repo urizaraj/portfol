@@ -1,43 +1,40 @@
-var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-var data = $("#data");
-var a = 'https://dl.dropboxusercontent.com/s/941sdrvc1peurt3/c.wav?dl=0';
-var b = 'https://dl.dropboxusercontent.com/s/r0uowyioitid3um/e.wav?dl=0';
-var c = 'https://dl.dropboxusercontent.com/s/68qewxq4ou3q30h/g.wav?dl=0';
-var d = 'https://dl.dropboxusercontent.com/s/9b7uiy2g5uvw2wy/b%20flat.wav?dl=0';
-var color_url = [["#yellow", a], ["#red", b], ["#green", c], ["#blue", d]];
-var colors = ["#yellow", "#red", "#green", "#blue"];
-var currentColors = [];
-var currentLength = 1;
-var pressed = [];
-var keepTrack = false;
-var strictMode = false;
-var currentIndex = 0;
-var interval;
-var soundSource = {};
-var _loop_1 = function (color, url) {
-    var ajaxRequest = new XMLHttpRequest();
+let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const data = $("#data");
+const a = '../static/app/notes/c.wav';
+const b = '../static/app/notes/e.wav';
+const c = '../static/app/notes/g.wav';
+const d = '../static/app/notes/bflat.wav';
+const color_url = [["#yellow", a], ["#red", b], ["#green", c], ["#blue", d]];
+const colors = ["#yellow", "#red", "#green", "#blue"];
+let currentColors = [];
+let currentLength = 1;
+let pressed = [];
+let keepTrack = false;
+let strictMode = false;
+let currentIndex = 0;
+let interval;
+let soundSource = {};
+for (let [color, url] of color_url) {
+    let ajaxRequest = new XMLHttpRequest();
     ajaxRequest.open("GET", url, true);
     ajaxRequest.responseType = "arraybuffer";
     ajaxRequest.onload = function () {
-        var audioData = ajaxRequest.response;
+        let audioData = ajaxRequest.response;
         audioCtx.decodeAudioData(audioData, function (buffer) {
             soundSource[color] = buffer;
         }, function (e) {
             console.log("Error with decoding audio data" + e.err);
         });
+        $(color).show();
     };
     ajaxRequest.send();
-};
-for (var _i = 0, color_url_1 = color_url; _i < color_url_1.length; _i++) {
-    var _a = color_url_1[_i], color = _a[0], url = _a[1];
-    _loop_1(color, url);
 }
 function activateColor(color) {
     sound = audioCtx.createBufferSource();
     sound.buffer = soundSource[color];
     sound.connect(audioCtx.destination);
     sound.start();
-    $(color).switchClass("btn-lg", "btn-sm", 200).switchClass("btn-sm", "btn-lg", 200);
+    $(color).switchClass("btn-lg", "btn-sm", 100).switchClass("btn-sm", "btn-lg", 200);
 }
 function resetGame() {
     $(".container").slideUp(function () {
@@ -61,8 +58,8 @@ function startGame() {
     $("#strict").hide();
     $("#1").slideUp();
     $("#2").slideDown();
-    for (var n = 0; n < currentLength; n++) {
-        var i = Math.floor(Math.random() * 4);
+    for (let n = 0; n < currentLength; n++) {
+        let i = Math.floor(Math.random() * 4);
         currentColors.push(colors[i]);
     }
     interval = setInterval(playCurrentColors, 600);
@@ -73,7 +70,7 @@ function continueGame() {
     $("#tryagain").slideUp();
     $("#length").text(currentLength);
     if (currentColors.length < currentLength) {
-        var i = Math.floor(Math.random() * 4);
+        let i = Math.floor(Math.random() * 4);
         currentColors.push(colors[i]);
     }
     interval = setInterval(playCurrentColors, 600);
@@ -81,7 +78,7 @@ function continueGame() {
 }
 function playCurrentColors() {
     if (currentIndex < currentColors.length) {
-        var color = currentColors[currentIndex];
+        let color = currentColors[currentIndex];
         activateColor(color);
         currentIndex++;
     }
@@ -123,12 +120,8 @@ function wrongChoice() {
 }
 $(document).ready(function () {
     $("#c").fadeIn(100);
-    var _loop_2 = function (color) {
+    for (let color of colors) {
         $(color).on("click", function () { colorClick(color); });
-    };
-    for (var _i = 0, colors_1 = colors; _i < colors_1.length; _i++) {
-        var color = colors_1[_i];
-        _loop_2(color);
     }
     $("#start").on("click", startGame);
     $("#reset").on("click", resetGame);

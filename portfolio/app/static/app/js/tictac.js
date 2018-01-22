@@ -1,11 +1,11 @@
-var player;
-var board;
-var selection = 'x';
-var mode = "human";
-var cell = ["#1a", "#1b", "#1c", "#2a", "#2b", "#2c", "#3a", "#3b", "#3c"];
-var cells = $("#1a,#1b,#1c,#2a,#2b,#2c,#3a,#3b,#3c");
-var data = $("#data");
-var possible = [
+let player;
+let board;
+let selection = 'x';
+let mode = "human";
+let cell = ["#1a", "#1b", "#1c", "#2a", "#2b", "#2c", "#3a", "#3b", "#3c"];
+let cells = $("#1a,#1b,#1c,#2a,#2b,#2c,#3a,#3b,#3c");
+let data = $("#data");
+let possible = [
     ["#1a", "#1b", "#1c"],
     ["#2a", "#2b", "#2c"],
     ["#3a", "#3b", "#3c"],
@@ -15,7 +15,7 @@ var possible = [
     ["#1a", "#2b", "#3c"],
     ["#3a", "#2b", "#1c"]
 ];
-var gameOver = false;
+let gameOver = false;
 function human() {
     if (mode == "computer") {
         mode = "human";
@@ -66,7 +66,7 @@ function change(id) {
         board[id] = player;
         checkForMatch();
         player = { o: 'x', x: 'o' }[player];
-        var boardFilled = Object.values(board).every(function (value) { return value != ''; });
+        let boardFilled = Object.values(board).every(function (value) { return value != ''; });
         if (boardFilled && !gameOver) {
             $("#message").text("it's a tie!");
             $("#victory").fadeIn();
@@ -79,9 +79,9 @@ function change(id) {
 }
 function checkForMatch() {
     possible.forEach(function (entry) {
-        var a = board[entry[0]];
-        var b = board[entry[1]];
-        var c = board[entry[2]];
+        let a = board[entry[0]];
+        let b = board[entry[1]];
+        let c = board[entry[2]];
         if ((a == b) && (b == c) && (a != "")) {
             $(entry.join()).addClass("bg-primary text-light border-primary", 200);
             $("#message").text(a + " wins!");
@@ -92,17 +92,15 @@ function checkForMatch() {
 }
 function computerTurn() {
     if (!gameOver) {
-        var available = [];
-        for (var _i = 0, possible_1 = possible; _i < possible_1.length; _i++) {
-            var entry = possible_1[_i];
-            var numOpponent = 0;
-            var idAvailable = void 0;
-            for (var _a = 0, entry_1 = entry; _a < entry_1.length; _a++) {
-                var id_1 = entry_1[_a];
-                if (board[id_1] == selection)
+        let available = [];
+        for (let entry of possible) {
+            let numOpponent = 0;
+            let idAvailable;
+            for (let id of entry) {
+                if (board[id] == selection)
                     numOpponent++;
-                else if (board[id_1] == '')
-                    idAvailable = id_1;
+                else if (board[id] == '')
+                    idAvailable = id;
             }
             if (numOpponent == 2 && idAvailable) {
                 available.push(idAvailable);
@@ -111,8 +109,8 @@ function computerTurn() {
         if (available.length == 0) {
             available = cell.filter(function (value) { return (board[value] == ''); });
         }
-        var id_2 = available[Math.floor(Math.random() * available.length)];
-        setTimeout(function () { change(id_2); }, 500);
+        let id = available[Math.floor(Math.random() * available.length)];
+        setTimeout(function () { change(id); }, 500);
     }
 }
 $(document).ready(function () {
