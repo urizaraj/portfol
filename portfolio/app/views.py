@@ -9,8 +9,8 @@ def index(request):
     
     context = {
         'title': 'Alexander Urizar - Portfolio',
-        'script': 'app/index.js',
-        'style': 'css/index.css',
+        'script': 'app/js/index.js',
+        'style': 'app/css/index.css',
         'form': form
         }
     
@@ -19,31 +19,31 @@ def index(request):
 def tictac(request):
     context = {
         'title': 'tic tac toe',
-        'script': 'app/tictac.js',
-        'style': 'css/tictac.css',
+        'script': 'app/js/tictac.js',
+        'style': 'app/css/tictac.css',
         }
     return render(request, 'app/tictac.haml', context)
 
 def simon(request):
     context = {
         'title': 'simon',
-        'script': 'app/simon.js',
-        'style': 'css/tictac.css',
+        'script': 'app/js/simon.js',
+        'style': 'app/css/tictac.css',
         }
     return render(request, 'app/simon.haml', context)
 
 def quote(request):
     context = {
         'title': 'random quote',
-        'script': 'app/quote.js',
-        'style': 'css/quote.css',
+        'script': 'app/js/quote.js',
+        'style': 'app/css/quote.css',
         }
     return render(request, 'app/quote.haml', context)
 
 def timer(request):
     context = {
         'title': 'timer',
-        'script': 'app/timer.js',
-        'style': 'css/tictac.css',
+        'script': 'app/js/timer.js',
+        'style': 'app/css/tictac.css',
         }
     return render(request, 'app/timer.haml', context)

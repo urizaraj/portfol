@@ -3,17 +3,18 @@
 - block content
   #c.container.mt-5.mb-5(style= "display: none")
     .row.justify-content-between#1
-      .col-auto
+      .col-sm-auto
         %h1.display-4
           simon - 'the game'
-      .col-auto.align-self-center
+
+      .col-sm-auto.align-self-center.mt-2.mt-sm-0
         %button#strict.btn.btn-lg.btn-outline-dark.border-0.rounded-0
           %i.fa.fa-square-o#check
           strict mode
         %button.btn.btn-lg.btn-outline-dark.rounded-0#start
           %i.fa.fa-play
           start
-  
+
     .row.justify-content-between#2(style= "display: none")
       .col-auto
         %h1.display-4
@@ -23,7 +24,6 @@
         %button.btn.btn-lg.btn-outline-dark.rounded-0#reset
           %i.fa.fa-refresh
           reset
-          
   
     .row.mt-5.mb-5.justify-content-center
       .col-lg-9
