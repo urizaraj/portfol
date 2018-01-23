@@ -6,6 +6,7 @@ const c = '../static/app/notes/g.wav';
 const d = '../static/app/notes/bflat.wav';
 const color_url = [["#yellow", a], ["#red", b], ["#green", c], ["#blue", d]];
 const colors = ["#yellow", "#red", "#green", "#blue"];
+let loaded = 0;
 let currentColors = [];
 let currentLength = 1;
 let pressed = [];
@@ -26,6 +27,10 @@ for (let [color, url] of color_url) {
             console.log("Error with decoding audio data" + e.err);
         });
         $(color).show();
+        loaded++;
+        if (loaded == 4) {
+            $("#start").show();
+        }
     };
     ajaxRequest.send();
 }
