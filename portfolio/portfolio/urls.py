@@ -24,5 +24,6 @@ urlpatterns = [
     path('simon/', views.simon, name='simon'),
     path('quote/', views.quote, name='quote'),
     path('timer/', views.timer, name='timer'),
+    path('memory/', views.memory, name='memory')
     # path('send/', views.send_email, name='send-email'),
 ]

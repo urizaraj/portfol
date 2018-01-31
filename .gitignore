@@ -274,3 +274,5 @@ portfolio.sln
 portfolio/portfolio.pyproj
 /portfolio/newindex.sass
 portfolio/tsconfig.json
+portfolio/jquery-ui.d.ts
+portfolio/jquery.d.ts

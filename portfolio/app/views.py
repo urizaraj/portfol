@@ -47,3 +47,11 @@ def timer(request):
         'style': 'app/css/tictac.css',
         }
     return render(request, 'app/timer.haml', context)
+
+def memory(request):
+    context = {
+        'title': 'memory',
+        'script': 'app/js/memory.js',
+        'style': 'app/css/memory.css'
+    }
+    return render(request, 'app/memory.haml', context)

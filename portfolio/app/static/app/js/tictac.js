@@ -3,7 +3,7 @@ let board;
 let selection = 'x';
 let mode = "human";
 let cell = ["#1a", "#1b", "#1c", "#2a", "#2b", "#2c", "#3a", "#3b", "#3c"];
-let cells = $("#1a,#1b,#1c,#2a,#2b,#2c,#3a,#3b,#3c");
+let databox = $("#1a,#1b,#1c,#2a,#2b,#2c,#3a,#3b,#3c");
 let data = $("#data");
 let possible = [
     ["#1a", "#1b", "#1c"],
@@ -52,7 +52,7 @@ function initializeGame() {
     gameOver = false;
     board = { "#1a": "", "#1b": "", "#1c": "", "#2a": "", "#2b": "", "#2c": "", "#3a": "", "#3b": "", "#3c": "" };
     $(".space").html("&nbsp;");
-    cells.removeClass("bg-primary text-light border-primary");
+    databox.removeClass("bg-primary text-light border-primary");
     $("#victory").hide();
     if (mode == 'computer' && selection != 'x') {
         computerTurn();
@@ -120,7 +120,7 @@ $(document).ready(function () {
     $("#selectX").on("click", function () { selectXorY("#selectO", "#selectX", 'x'); });
     $("#selectO").on("click", function () { selectXorY("#selectX", "#selectO", 'o'); });
     $("#refresh,#victory").on("click", startGame);
-    cells.on("click", function (event) {
+    databox.on("click", function (event) {
         if ((mode != 'computer' || player == selection) && !gameOver) {
             change("#" + event.currentTarget.id);
         }

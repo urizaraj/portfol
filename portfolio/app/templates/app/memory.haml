@@ -1,0 +1,42 @@
+- extends 'app/header.haml'
+
+- block content
+  .container.mt-5.mb-5(style="display: none")
+    .row.mb-3
+      .col
+        %button#button-label.btn.btn-lg.btn-jungle.dropdown-toggle( type="button" data-toggle="dropdown" )
+          16 cards
+
+        .dropdown-menu
+          %button.btn.btn-outline-magic.dropdown-item 24
+          %button.btn.btn-outline-magic.dropdown-item 20
+          %button.btn.btn-outline-magic.dropdown-item.active 16
+          %button.btn.btn-outline-magic.dropdown-item 12
+
+
+        %button#reset.btn.btn-imperial.btn-lg.disabled
+          %i.fa.fa-refresh.mr-1
+          Reset
+
+    #group.row.mb-3.justify-content-center.text-center
+
+  #sm.modal.fade(tabindex="-1" role="dialog")
+    .modal-dialog.modal-dialog-centered(role="document")
+      .modal-content.bg-powder
+        .modal-body.text-center.text-imperial
+          %h1.display-2 Success!
+          %h1#turn.display-4.mb-5
+          %button#resetm.btn.btn-lg.btn-imperial
+            %i.fa.fa-refresh.mr-1
+            Reset
+
+
+  %d(hidden)
+    #comp
+      .col-3
+        .card.game-card
+          .card-body
+            %h1.display-4
+              %i.fa.fa-diamond
+    #brk
+      .w-100

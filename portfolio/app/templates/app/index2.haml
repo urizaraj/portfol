@@ -36,9 +36,9 @@
     #projects.row.mt-3
       .col
         .row
-          %a.col-sm-6.right-border.p-3(href="{% url 'quote' %}")
-            %h3 Quote Generator
-            %h5 a simple small quote generator
+          %a.col-sm-6.right-border.p-3(href="{% url 'memory' %}")
+            %h3 Memory
+            %h5 can you remember where all the cards are?
           
           %a.col-sm-6.right-border.p-3.mt-3.mt-sm-0(href="{% url 'simon' %}")
             %h3 Simon
@@ -52,3 +52,8 @@
           %a.col-sm-6.right-border.p-3.mt-3.mt-sm-0(href="{% url 'timer' %}")
             %h3 Pomodoro Timer
             %h5 alternate between working and resting for maximum efficiency
+
+        .row.mt-3
+          %a.col-sm-6.right-border.p-3(href="{% url 'quote' %}")
+            %h3 Quote Generator
+            %h5 a simple small quote generator

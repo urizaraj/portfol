@@ -35,7 +35,7 @@ for (let [color, url] of color_url) {
     ajaxRequest.send();
 }
 function activateColor(color) {
-    sound = audioCtx.createBufferSource();
+    let sound = audioCtx.createBufferSource();
     sound.buffer = soundSource[color];
     sound.connect(audioCtx.destination);
     sound.start();

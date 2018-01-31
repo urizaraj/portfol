@@ -1,3 +1,7 @@
+"use strict";
+/// <reference path ="../jquery.d.ts"/>
+/// <reference path ="../jquery-ui.d.ts"/>
+Object.defineProperty(exports, "__esModule", { value: true });
 const data = $("#data");
 const a = new Audio('https://dl.dropboxusercontent.com/s/941sdrvc1peurt3/c.wav?dl=0');
 const b = new Audio('https://dl.dropboxusercontent.com/s/r0uowyioitid3um/e.wav?dl=0');
