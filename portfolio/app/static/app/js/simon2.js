@@ -1,5 +1,5 @@
-let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-const data = $("#data");
+// let audioCtx = new (window.AudioContext || window.webkitAudioContext)()
+let audioCtx = new AudioContext();
 const a = '../static/app/notes/c.wav';
 const b = '../static/app/notes/e.wav';
 const c = '../static/app/notes/g.wav';
@@ -13,7 +13,7 @@ let pressed = [];
 let keepTrack = false;
 let strictMode = false;
 let currentIndex = 0;
-let interval;
+let invl;
 let soundSource = {};
 for (let [color, url] of color_url) {
     let ajaxRequest = new XMLHttpRequest();
@@ -24,7 +24,7 @@ for (let [color, url] of color_url) {
         audioCtx.decodeAudioData(audioData, function (buffer) {
             soundSource[color] = buffer;
         }, function (e) {
-            console.log("Error with decoding audio data" + e.err);
+            console.log("Error with decoding audio data" + e);
         });
         $(color).show();
         loaded++;
@@ -58,7 +58,7 @@ function resetGame() {
         $(".container").slideDown();
     });
 }
-function startGame() {
+function startSimon() {
     $("#start").hide();
     $("#strict").hide();
     $("#1").slideUp();
@@ -67,7 +67,7 @@ function startGame() {
         let i = Math.floor(Math.random() * 4);
         currentColors.push(colors[i]);
     }
-    interval = setInterval(playCurrentColors, 600);
+    invl = setInterval(playCurrentColors, 600);
     keepTrack = true;
 }
 function continueGame() {
@@ -78,7 +78,7 @@ function continueGame() {
         let i = Math.floor(Math.random() * 4);
         currentColors.push(colors[i]);
     }
-    interval = setInterval(playCurrentColors, 600);
+    invl = setInterval(playCurrentColors, 600);
     keepTrack = true;
 }
 function playCurrentColors() {
@@ -88,7 +88,7 @@ function playCurrentColors() {
         currentIndex++;
     }
     else {
-        clearInterval(interval);
+        clearInterval(invl);
         currentIndex = 0;
     }
 }
@@ -128,7 +128,7 @@ $(document).ready(function () {
     for (let color of colors) {
         $(color).on("click", function () { colorClick(color); });
     }
-    $("#start").on("click", startGame);
+    $("#start").on("click", startSimon);
     $("#reset").on("click", resetGame);
     $("#victory").on("click", resetGame);
     $("#success").on("click", continueGame);

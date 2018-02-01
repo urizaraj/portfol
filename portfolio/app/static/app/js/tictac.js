@@ -66,7 +66,8 @@ function change(id) {
         board[id] = player;
         checkForMatch();
         player = { o: 'x', x: 'o' }[player];
-        let boardFilled = Object.values(board).every(function (value) { return value != ''; });
+        // let boardFilled = Object.values(board).every(function(value){return value != ''})
+        let boardFilled = cell.every(function (key) { return board[key] != ''; });
         if (boardFilled && !gameOver) {
             $("#message").text("it's a tie!");
             $("#victory").fadeIn();

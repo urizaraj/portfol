@@ -7,8 +7,12 @@ let interval;
 function displayTime() {
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
-    seconds = seconds.toString().padStart(2, '0');
-    $("#time").text(minutes + ":" + seconds);
+    // seconds = seconds.toString().padStart(2,'0')
+    let secstring = seconds.toString();
+    if (secstring.length == 1) {
+        secstring = '0' + secstring;
+    }
+    $("#time").text(minutes + ":" + secstring);
 }
 function updateTimer() {
     if (timeLeft > 1) {
@@ -39,10 +43,10 @@ function start() {
     changePhase();
     $("#disp").slideDown();
     $("#settings").slideUp();
-    interval = setInterval(updateTimer, 1000);
+    invl = setInterval(updateTimer, 1000);
 }
 function stopTimer() {
-    clearInterval(interval);
+    clearInterval(invl);
     phase = '';
     $("#disp").slideUp();
     $("#settings").slideDown();

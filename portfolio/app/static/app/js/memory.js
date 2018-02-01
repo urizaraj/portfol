@@ -29,6 +29,8 @@ var Icon;
     Icon[Icon["fa-gamepad"] = 7] = "fa-gamepad";
     Icon[Icon["fa-lock"] = 8] = "fa-lock";
     Icon[Icon["fa-magnet"] = 9] = "fa-magnet";
+    Icon[Icon["fa-anchor"] = 10] = "fa-anchor";
+    Icon[Icon["fa-book"] = 11] = "fa-book";
 })(Icon || (Icon = {}));
 function assign_pairs(n) {
     function shuffle(ar) {
@@ -110,7 +112,7 @@ function generate_cards() {
         }
     }
 }
-function resetGame() {
+function resetMemory() {
     group.fadeOut(200, function () {
         matched_cards = 0;
         step = 1;
@@ -134,7 +136,7 @@ $(document).ready(function () {
     });
     reset.on('click', function () {
         if (!reset.hasClass('disabled')) {
-            resetGame();
+            resetMemory();
         }
     });
     dropdownitem.on('click', function () {
@@ -142,11 +144,11 @@ $(document).ready(function () {
         n = parseInt(btn.text());
         dropdownitem.removeClass('active');
         btn.addClass('active');
-        resetGame();
+        resetMemory();
         $("#button-label").text(n.toString() + ' cards');
     });
     resetm.on('click', function () {
-        resetGame();
+        resetMemory();
         sm.modal('hide');
     });
     value = assign_pairs(n);

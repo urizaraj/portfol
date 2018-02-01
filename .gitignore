@@ -276,3 +276,6 @@ portfolio/portfolio.pyproj
 portfolio/tsconfig.json
 portfolio/jquery-ui.d.ts
 portfolio/jquery.d.ts
+portfolio/gulpfile.js
+portfolio/package.json
+portfolio/package-lock.json
