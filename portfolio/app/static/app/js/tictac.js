@@ -1,3 +1,4 @@
+"use strict";
 let player;
 let board;
 let selection = 'x';
@@ -65,7 +66,8 @@ function change(id) {
             .text(player);
         board[id] = player;
         checkForMatch();
-        player = { o: 'x', x: 'o' }[player];
+        let xoswitch = { o: 'x', x: 'o' };
+        player = xoswitch[player];
         // let boardFilled = Object.values(board).every(function(value){return value != ''})
         let boardFilled = cell.every(function (key) { return board[key] != ''; });
         if (boardFilled && !gameOver) {

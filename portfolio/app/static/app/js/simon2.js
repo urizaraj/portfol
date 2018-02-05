@@ -1,3 +1,4 @@
+"use strict";
 // let audioCtx = new (window.AudioContext || window.webkitAudioContext)()
 let audioCtx = new AudioContext();
 const a = '../static/app/notes/c.wav';

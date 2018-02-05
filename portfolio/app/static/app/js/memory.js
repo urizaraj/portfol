@@ -1,3 +1,4 @@
+"use strict";
 let random = Math.random;
 let floor = Math.floor;
 let card1;
@@ -54,12 +55,13 @@ function assign_pairs(n) {
 function step1(card) {
     if (turn > 0) {
         for (let element of [card1, card2]) {
+            let id = parseInt(element.id);
             $(element)
                 .filter('.wrong')
                 .removeClass("wrong")
                 .find('i')
                 .hide()
-                .switchClass(Icon[value[element.id]], 'fa-diamond')
+                .switchClass(Icon[value[id]], 'fa-diamond')
                 .show();
         }
     }
@@ -70,7 +72,7 @@ function step1(card) {
         .addClass('selected')
         .find("i")
         .hide()
-        .switchClass('fa-diamond', Icon[value[card.id]])
+        .switchClass('fa-diamond', Icon[value[parseInt(card.id)]])
         .show();
     card1 = card;
     step = 2;
@@ -80,9 +82,9 @@ function step2(card) {
     $(card)
         .find("i")
         .hide()
-        .switchClass('fa-diamond', Icon[value[card.id]])
+        .switchClass('fa-diamond', Icon[value[parseInt(card.id)]])
         .show();
-    if (value[card1.id] == value[card2.id] && card1 != card2) {
+    if (value[parseInt(card1.id)] == value[parseInt(card2.id)] && card1 != card2) {
         $(card1).switchClass('selected', 'matched');
         $(card2).addClass('matched');
         matched_cards += 2;

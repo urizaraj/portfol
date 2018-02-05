@@ -1,3 +1,4 @@
+"use strict";
 let sessionLength = 25;
 let breakLength = 5;
 let timeLeft = 0;
@@ -43,10 +44,10 @@ function start() {
     changePhase();
     $("#disp").slideDown();
     $("#settings").slideUp();
-    invl = setInterval(updateTimer, 1000);
+    interval = setInterval(updateTimer, 1000);
 }
 function stopTimer() {
-    clearInterval(invl);
+    clearInterval(interval);
     phase = '';
     $("#disp").slideUp();
     $("#settings").slideDown();
