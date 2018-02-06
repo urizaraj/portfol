@@ -2,12 +2,12 @@
 - load static
 
 - block content
-  .container.mt-3.mt-sm-5.mb-5.text-light(style="display: none")
+  .container.mt-3.mt-sm-5.mb-5.text-whiteish(style="display: none")
     .row.mb-3
       .col
         %h1.display-2
           Alexander Urizar
-    
+
     .row.mb-5
       .col
         %h1
@@ -16,7 +16,7 @@
           %span#linkedin.mr-2
             %a(href="https://www.linkedin.com/in/alexander-urizar-a8231b68")
               LinkedIn
-              %i.fa.fa-linkedin-square(aria-hidden= "true") 
+              %i.fa.fa-linkedin-square(aria-hidden= "true")
           %span#github.mr-2
             %a(href="https://github.com/urizaraj")
               Github
@@ -39,16 +39,16 @@
           %a.col-sm-6.right-border.p-3(href="{% url 'memory' %}")
             %h3 Memory
             %h5 can you remember where all the cards are?
-          
+
           %a.col-sm-6.right-border.p-3.mt-3.mt-sm-0(href="{% url 'simon' %}")
             %h3 Simon
             %h5 a minimalistic simon says game
-        
+
         .row.mt-3
           %a.col-sm-6.right-border.p-3(href="{% url 'tictac' %}")
             %h3 Tic Tac Toe
             %h5 play against a friend, or the computer
-          
+
           %a.col-sm-6.right-border.p-3.mt-3.mt-sm-0(href="{% url 'timer' %}")
             %h3 Pomodoro Timer
             %h5 alternate between working and resting for maximum efficiency
@@ -58,14 +58,36 @@
             %h3 Quote Generator
             %h5 a simple small quote generator
 
-    #aboutheader.row.mb-3
+    #aboutheader.row.mb-1
       .col
         %h1.display-4
           About
           %i.fa.fa-angle-up#arrow-2
 
-    #about.row(style="display: none")
-      .col
-        %p.lead
-          You can find the repository for this site
-          %a(href="https://github.com/urizaraj/portfolio") here.
+    #about(style="display: none")
+      .row.mb-1
+        .col
+          %p.lead
+            You can find the repository for this site
+            %span.bg-cherry.p-1<
+              %a(href="https://github.com/urizaraj/portfolio") here.
+            Built using:
+      .row
+        .col-auto.mb-3
+          .bg-cherry.p-2
+            %a.h5(href="https://www.djangoproject.com/") Django
+        .col-auto.mb-3
+          .bg-cherry.p-2
+            %a.h5(href="https://getbootstrap.com/") Bootstrap
+        .col-auto.mb-3
+          .bg-cherry.p-2
+            %a.h5(href="https://jquery.com/") jQuery
+        .col-auto.mb-3
+          .bg-cherry.p-2
+            %a.h5(href="https://www.typescriptlang.org/") Typescript
+        .col-auto.mb-3
+          .bg-cherry.p-2
+            %a.h5(href="http://sass-lang.com/") Sass
+        .col-auto.mb-3
+          .bg-cherry.p-2
+            %a.h5(href="https://github.com/jessemiller/HamlPy") HamlPy
